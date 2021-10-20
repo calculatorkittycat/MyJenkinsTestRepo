@@ -39,28 +39,6 @@ public class StepDefs {
 
     }
 
-    @When("^I search for \"([^\"]*)\"$")
-    public void i_search_for(String search) throws Throwable {
-        Driver.getDriver().findElement(By.cssSelector("[id*='search-query']")).sendKeys(search + Keys.ENTER);
-    }
 
-    @Then("^I should see the results$")
-    public void i_should_see_the_results() throws Throwable {
-        Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains("search"));
-    }
-
-    @Then("^I should see more results$")
-    public void i_should_see_more_results() throws Throwable {
-        Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains("search"));
-    }
-
-    @After
-    public void tearDown(Scenario scenario) {
-        if (scenario.isFailed()) {
-            final byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
-            scenario.embed(screenshot, "image/png", scenario.getName());
-        }
-        Driver.closeDriver();
-    }
 
 }
