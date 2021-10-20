@@ -11,7 +11,6 @@ import org.junit.runner.RunWith;
                 "html:target/cucumber/",
                 "junit:target/junit/junit-report.xml",
                 "rerun:target/rerun.txt"},
-        features = "src/test/resources/cbt",
-        glue = "com/trycloud/step_definitions"
+        features = "src/test/resources/cbt"
 )
 public class CukesRunner {}
